@@ -37,7 +37,7 @@ export default {
         loadData() {
             let url = this.url + '/api/transaction';
             this.axios.get(url).then(response => {
-                this.transaction = response.data
+                this.transaction = response.data.data
                 console.log(this.transaction);
             });
             

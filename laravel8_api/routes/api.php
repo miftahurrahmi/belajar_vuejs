@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::post('/transaction', [TransactionController::class,'store']);
 Route::get('/transaction/{id}', [TransactionController::class,'show']);
 Route::put('/transaction/{id}', [TransactionController::class,'update']);
 Route::delete('/transaction/{id}', [TransactionController::class,'destroy']);
+
+Route::resource('/post', PostController::class);
+

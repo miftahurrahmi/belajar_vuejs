@@ -13,6 +13,9 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/transaksi">Transaksi</router-link>
         </li>
+          <li class="nav-item">
+          <router-link class="nav-link" to="/post">Post</router-link>
+        </li>
       </ul>
     </div>
   </div>
