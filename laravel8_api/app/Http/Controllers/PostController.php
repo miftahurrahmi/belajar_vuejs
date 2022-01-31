@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::get();
+        $post = Post::all();
         $response = [
             'message' => 'List post order by time',
             'data' => $post

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h2>Home Page</h2>
+        <h2 class="head-two">Home Page</h2>
     </div>
 </template>
 
@@ -9,3 +9,10 @@ export default {
     name: 'Home'
 }
 </script>
+
+<style scoped>
+    .head-two{
+        text-align:center;
+        margin-top:90px;
+    }
+</style>
