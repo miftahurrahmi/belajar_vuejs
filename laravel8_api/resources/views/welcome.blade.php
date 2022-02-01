@@ -28,7 +28,13 @@
 
         </style>
     </head>
+  
     <body>
+
+      <div class="flex-center position-ref full-height">
+            @include('layouts.navigation')
+        </div>
+         
         <div class="flex-center position-ref full-height">
         
             <div class="content">

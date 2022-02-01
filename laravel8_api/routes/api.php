@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +18,25 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => 'auth:sanctum'], function(){
+    Route::resource('/transaction', TransactionController::class);
+    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::resource('/post', PostController::class);
+
 });
+// Route::get('/transaction', [TransactionController::class,'index']);
+// Route::post('/transaction', [TransactionController::class,'store']);
+// Route::get('/transaction/{id}', [TransactionController::class,'show']);
+// Route::put('/transaction/{id}', [TransactionController::class,'update']);
+// Route::delete('/transaction/{id}', [TransactionController::class,'destroy']);
 
-Route::get('/transaction', [TransactionController::class,'index']);
-Route::post('/transaction', [TransactionController::class,'store']);
-Route::get('/transaction/{id}', [TransactionController::class,'show']);
-Route::put('/transaction/{id}', [TransactionController::class,'update']);
-Route::delete('/transaction/{id}', [TransactionController::class,'destroy']);
 
-Route::resource('/post', PostController::class);
+
+
+
 
